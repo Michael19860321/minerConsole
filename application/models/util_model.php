@@ -1507,9 +1507,9 @@ class Util_model extends CI_Model {
 	{
 		log_message('error', "Reboot cmd called");
 
-		$this->minerStop();
-		$this->redis->del("cron_lock");
-		$this->redis->command("BGSAVE");
+		// $this->minerStop();
+		// $this->redis->del("cron_lock");
+		// $this->redis->command("BGSAVE");
 		sleep(2);
 		
 		exec("sudo reboot");

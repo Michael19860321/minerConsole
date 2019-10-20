@@ -6,7 +6,6 @@
 			data-device-tree="<?php echo $dashboardDevicetree ?>"
 			data-dashboard-temp="<?php echo ($this->redis->get("dashboard_temp")) ? $this->redis->get("dashboard_temp") : "c"; ?>"
 			data-miner-status="<?php echo ($this->redis->get("minerd_status")) ? 1 : 0; ?>"
-			data-miner-running="<?php echo $minerdRunning; ?>"
 			data-minera-pool-username="<?php echo $this->util_model->getMineraPoolUser(); ?>"
 			data-minera-pool-url-scrypt="<?php echo $this->config->item('minera_pool_url') ?>"
 			data-minera-pool-url-sha256="<?php echo $this->config->item('minera_pool_url_sha256') ?>"
@@ -23,7 +22,7 @@
 						<h4 class="modal-title" id="modal-saving-label"></h4>
 					</div>
 					<div class="modal-body" style="text-align:center;">
-						<img src="<?php echo base_url("assets/img/ajax-loader1.gif") ?>" alt="Loading..." />
+						<img src="<?php echo base_url("assets/img/ajax-loader1.gif") ?>" alt="<?php echo lang('app.loading') ?>" />
 					</div>
 					<div class="modal-footer modal-footer-center">
 						<h6>Page will automatically reload as soon as the process terminate.</h6>
@@ -94,7 +93,7 @@
 		
         <header class="header" data-this-section="<?php echo $sectionPage ?>">
 
-            <a href="<?php echo site_url('app/dashboard') ?>" class="logo">Cheetah Miner</a>
+            <a href="<?php echo site_url('app/dashboard') ?>" class="logo"><?php echo lang('app.title') ?></a>
 
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -280,7 +279,7 @@
 					        <ul class="dropdown-menu">
 					            <!-- User image -->
 					            <li class="user-header bg-dark-grey">
-                                    <a href="<?php echo site_url("app/index") ?>" style="color: #ffffff;" class="btn btn-danger btn-flat">Logout</a>
+                                    <a href="<?php echo site_url("app/logout") ?>" style="color: #ffffff;" class="btn btn-danger btn-flat"><?php echo lang('app.logout') ?></a>
 					            </li>
 					        </ul>
 					    </li>
@@ -300,9 +299,9 @@
                     <div class="user-panel">
                         <div class="pull-left info">
 							<?php if ($isOnline) : ?>
-	                            <a href="<?php echo site_url("app/dashboard") ?>"><i class="fa fa-circle text-success"></i> Online </a>
+	                            <a href="<?php echo site_url("app/dashboard") ?>"><i class="fa fa-circle text-success"></i> <?php echo lang('app.online') ?> </a>
 	                        <?php else: ?>
-	                            <a href="<?php echo site_url("app/settings") ?>" data-toggle="tooltip" title="" data-original-title="Go to the settings page"><i class="fa fa-circle text-muted"></i> Offline <?php if ($minerdSoftware) : ?><small class="pull-right badge bg-muted"><?php echo $minerdSoftware ?></small><?php endif; ?></a>
+	                            <a href="<?php echo site_url("app/settings") ?>" data-toggle="tooltip" title="" data-original-title="<?php echo lang('app.go_to_settings') ?>"><i class="fa fa-circle text-muted"></i> <?php echo lang('app.offline') ?> <?php if ($minerdSoftware) : ?><small class="pull-right badge bg-muted"><?php echo $minerdSoftware ?></small><?php endif; ?></a>
 							<?php endif; ?>
                         </div>
                     </div>
@@ -310,73 +309,73 @@
                     <!-- sidebar menu -->
                     <ul class="sidebar-menu">
 	                    <?php if ($sectionPage === "dashboard" && (($isOnline && $appScript) || (is_array($netMiners) && count($netMiners) > 0))) : ?>
-                        	<li data-toggle="tooltip" title="" data-original-title="Refresh Dashboard">
+                        	<li data-toggle="tooltip" title="" data-original-title="<?php echo lang('app.refresh_dashboard') ?>">
                             	<a href="#" class="refresh-btn">
-                                	<i class="fa fa-refresh refresh-icon mr5" style="width: inherit;"></i> <span>Refresh</span><span class="badge bg-muted pull-right auto-refresh-time">auto in</span>
+                                	<i class="fa fa-refresh refresh-icon mr5" style="width: inherit;"></i> <span><?php echo lang('app.refresh') ?></span><span class="badge bg-muted pull-right auto-refresh-time">auto in</span>
 								</a>
 							</li>
 						<?php endif; ?>
-                        <li class="treeview" data-toggle="tooltip" title="" data-original-title="Go to the dashboard page">
+                        <li class="treeview" data-toggle="tooltip" title="" data-original-title="<?php echo lang('app.go_to_dashboard') ?>">
                         	<a href="<?php echo site_url("app/dashboard") ?>">
                         		<i class="fa fa-dashboard"></i> 
-                        		<span>Dashboard</span>
+                        		<span><?php echo lang('app.dashboard') ?></span>
                                 <i class="treeview-menu-dashboard-icon fa pull-right fa-angle-left"></i>
                         	</a>
                         	<ul class="treeview-menu treeview-menu-dashboard" style="display: none;">
                                 <li>
                                 	<a href="<?php echo site_url("app/dashboard#box-widgets") ?>" class="menu-top-widgets-box ml10">
-                                		<i class="fa fa-th"></i> Widgets
+                                		<i class="fa fa-th"></i> <?php echo lang('app.widgets') ?>
                                 	</a>
                                 </li>
                                 <li>
                                 	<a href="<?php echo site_url("app/dashboard#box-local-miner") ?>" class="menu-local-miner-box ml10">
-                                		<i class="fa fa-desktop"></i> Local miner
+                                		<i class="fa fa-desktop"></i> <?php echo lang('app.local_miner') ?>
                                 	</a>
                                 </li>
                                 <li>
                                 	<a href="<?php echo site_url("app/dashboard#box-local-pools") ?>" class="menu-local-pools-box ml10">
-                                		<i class="fa fa-cloud"></i> Local Pools
+                                		<i class="fa fa-cloud"></i> <?php echo lang('app.local_pools') ?>
                                 	</a>
                                 </li>
                                 <li>
                                 	<a href="<?php echo site_url("app/dashboard#box-charts") ?>" class="menu-charts-box ml10">
-                                		<i class="fa fa-bar-chart"></i> Charts
+                                		<i class="fa fa-bar-chart"></i> <?php echo lang('app.charts') ?>
                                 	</a>
                                 </li>
                                 <li>
                                 	<a href="<?php echo site_url("app/dashboard#box-log") ?>" class="menu-log-box ml10">
-                                		<i class="fa fa-file"></i> Log
+                                		<i class="fa fa-file"></i> <?php echo lang('app.log') ?>
                                 	</a>
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-charts" data-toggle="tooltip" title="" data-original-title="Go to the charts page">
+                        <li class="sidebar-charts" data-toggle="tooltip" title="" data-original-title="<?php echo lang('app.go_to_charts') ?>">
                             <a href="<?php echo site_url("app/charts") ?>">
-                                <i class="fa fa-bar-chart-o"></i> <span>Charts</span>
+                                <i class="fa fa-bar-chart-o"></i> <span><?php echo lang('app.charts') ?></span>
                             </a>
                         </li>
                         <li class="treeview">
                         	<a href="#">
                         		<i class="fa fa-gear"></i> 
-                        		<span>Settings</span>
+                        		<span><?php echo lang('app.settings') ?></span>
                                 <i class="treeview-menu-settings-icon fa pull-right fa-angle-left"></i>
                         	</a>
                         	<ul class="treeview-menu treeview-menu-settings" style="display: none;">
 
                                 <li>
                                 	<a href="<?php echo site_url("app/settings#pools-box") ?>" class="menu-pools-box ml10">
-                                		<i class="fa fa-cloud"></i> Pools
+                                		<i class="fa fa-cloud"></i> <?php echo lang('app.pools') ?>
                                 	</a>
                                 </li>
 
                                 <li>
                                 	<a href="<?php echo site_url("app/settings#user-box") ?>" class="menu-user-box ml10">
-                                		<i class="fa fa-user"></i> User
+                                		<i class="fa fa-user"></i> <?php echo lang('app.user') ?>
                                 	</a>
                                 </li>
                                 <li>
                                 	<a href="<?php echo site_url("app/settings#resets-box") ?>" class="menu-resets-box ml10">
-                                		<i class="fa fa-warning"></i> Resets
+                                		<i class="fa fa-warning"></i> <?php echo lang('app.resets') ?>
                                 	</a>
                                 </li>
                             </ul>
@@ -384,24 +383,13 @@
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-desktop"></i>
-                                <span>Miner</span>
+                                <span><?php echo lang('app.miner') ?></span>
                                 <i class="fa pull-right fa-angle-left"></i>
                             </a>
                             <ul class="treeview-menu" style="display: none;">
-
-                                <li data-toggle="tooltip" title="" data-original-title="<?php echo ($isOnline) ? "It seems your miner is mining. To restart it click below" : "Start your miner"; ?>">
-                                	<a href="#" <?php echo ($isOnline) ? '' : 'class="miner-action" data-miner-action="start"'; ?> style="margin-left: 10px;">
-                                		<i class="fa fa-arrow-circle-o-up"></i> Start miner
-                                	</a>
-                                </li>
-                                <li data-toggle="tooltip" title="" data-original-title="<?php echo ($isOnline) ? "Stop your miner" : "Your miner is stopped"; ?>">
-                                	<a href="#" class="miner-action" data-miner-action="stop" style="margin-left: 10px;">
-                                		<i class="fa fa-arrow-circle-o-down"></i> Stop miner
-                                	</a>
-                                </li>
-                                <li data-toggle="tooltip" title="" data-original-title="Restart your miner">
+                                <li data-toggle="tooltip" title="" data-original-title="<?php echo lang('app.restart_miner_title') ?>">
                                 	<a href="#" class="miner-action" data-miner-action="restart" style="margin-left: 10px;">
-                                		<i class="fa fa-repeat"></i> Restart miner
+                                		<i class="fa fa-repeat"></i> <?php echo lang('app.restart_miner') ?>
                                 	</a>
                                 </li>
                             </ul>
@@ -409,18 +397,13 @@
                         <li class="treeview">
                             <a href="#">
                                 <i class="fa fa-rocket"></i>
-                                <span>System</span>
+                                <span><?php echo lang('app.system') ?></span>
                                 <i class="fa pull-right fa-angle-left"></i>
                             </a>
                             <ul class="treeview-menu" style="display: none;">
-                                <li data-toggle="tooltip" title="" data-original-title="Reboot Minera">
+                                <li data-toggle="tooltip" title="" data-original-title="<?php echo lang('app.reboot_title') ?>">
                                 	<a href="<?php echo site_url("app/reboot") ?>" style="margin-left: 10px;">
-                                		<i class="fa fa-flash"></i> Reboot
-                                	</a>
-                                </li>
-                                <li data-toggle="tooltip" title="" data-original-title="Shutdown Minera">
-                                	<a href="<?php echo site_url("app/shutdown") ?>" style="margin-left: 10px;">
-                                		<i class="fa fa-power-off"></i> Shutdown
+                                		<i class="fa fa-power-off"></i> <?php echo lang('app.reboot') ?>
                                 	</a>
                                 </li>
                             </ul>

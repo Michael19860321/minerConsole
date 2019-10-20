@@ -41,6 +41,8 @@
 $route['default_controller'] = "app";
 $route['404_override'] = '';
 
+$route['en|cn']             = 'app';
+$route['(en|cn)/(:any)']    = '$2';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

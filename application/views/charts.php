@@ -3,11 +3,11 @@
 				<!-- Content Header (Page header) -->
 				<section class="content-header">
 					<h1>
-						Mining
-						<small>Charts</small>
+						<?php echo lang('app.mining') ?>
+						<small><?php echo lang('app.charts') ?></small>
 					</h1>
 					<ol class="breadcrumb">
-						<li><a href="<?php echo site_url("app/dashboard") ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+						<li><a href="<?php echo site_url("app/dashboard") ?>"><i class="fa fa-dashboard"></i> <?php echo lang('app.dashboard') ?></a></li>
 					</ol>
 				</section>
 
@@ -47,11 +47,11 @@
 									</div><!-- /. tools -->
 									<i class="fa fa-warning"></i>
 
-									<h3 class="box-title">Warning!</h3>
+									<h3 class="box-title"><?php echo lang('app.warning') ?></h3>
 								</div>
 								<div class="box-body warning-message"></div>
 								<div class="box-footer text-center">
-									<a href="<?php site_url("app/dashboard") ?>"><h6>Click here to refresh</h6></a>
+									<a href="<?php site_url("app/dashboard") ?>"><h6><?php echo lang('app.refresh_tips') ?></h6></a>
 								</div>
 							</div><!-- /.miner box -->	
 						
@@ -71,22 +71,22 @@
 									</div><!-- /. tools -->
 									<i class="fa fa-bar-chart-o"></i>
 									
-									<h3 class="box-title" id="hashrate-history">Hashrate History</h3>
+									<h3 class="box-title" id="hashrate-history"><?php echo lang('app.hashrate_history') ?></h3>
 								</div>
 								<div class="box-body chart-responsive">
-									<h4>Hourly</h4>
+									<h4><?php echo lang('app.hourly') ?></h4>
 									<div class="chart" id="hashrate-chart-hourly" style="height:160px;"></div>
 								</div>
 								<div class="box-body chart-responsive">
-									<h4>Daily</h4>
+									<h4><?php echo lang('app.daily') ?></h4>
 									<div class="chart" id="hashrate-chart-daily" style="height:160px;"></div>
 								</div>
 								<div class="box-body chart-responsive">
-									<h4>Monthly</h4>
+									<h4><?php echo lang('app.monthly') ?></h4>
 									<div class="chart" id="hashrate-chart-monthly" style="height:160px;"></div>
 								</div>
 								<div class="box-body chart-responsive">
-									<h4>Yearly</h4>
+									<h4><?php echo lang('app.yearly') ?></h4>
 									<div class="chart" id="hashrate-chart-yearly" style="height:160px;"></div>
 								</div>
 							</div><!-- /.hashrate box -->
@@ -106,22 +106,22 @@
 									</div><!-- /. tools -->
 									<i class="fa fa-bullseye"></i>
 									
-									<h3 class="box-title" id="error-history">Accepted/Rejected/Errors</h3>
+									<h3 class="box-title" id="error-history"><?php echo lang('app.accepted_rejected_erros') ?></h3>
 								</div>
 								<div class="box-body chart-responsive">
-									<h4>Hourly</h4>
+									<h4><?php echo lang('app.hourly') ?></h4>
 									<div class="chart" id="rehw-chart-hourly" style="height:160px;"></div>
 								</div>
 								<div class="box-body chart-responsive">
-									<h4>Daily</h4>
+									<h4><?php echo lang('app.daily') ?></h4>
 									<div class="chart" id="rehw-chart-daily" style="height:160px;"></div>
 								</div>
 								<div class="box-body chart-responsive">
-									<h4>Monthly</h4>
+									<h4><?php echo lang('app.monthly') ?></h4>
 									<div class="chart" id="rehw-chart-monthly" style="height:160px;"></div>
 								</div>
 								<div class="box-body chart-responsive">
-									<h4>Yearly</h4>
+									<h4><?php echo lang('app.yearly') ?></h4>
 									<div class="chart" id="rehw-chart-yearly" style="height:160px;"></div>
 								</div>
 							</div>

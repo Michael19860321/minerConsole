@@ -1,4 +1,3 @@
-
     <!-- General script -->
     <script type="text/javascript">
 	    var _baseUrl = '<?php echo site_url() ?>';

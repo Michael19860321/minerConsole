@@ -85,7 +85,9 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'en';
+
+$config['support_language']   = array('en','cn');
 
 /*
 |--------------------------------------------------------------------------
@@ -285,6 +287,10 @@ $config['cookie_prefix']	= "";
 $config['cookie_domain']	= "";
 $config['cookie_path']		= "/";
 $config['cookie_secure']	= FALSE;
+
+$config['use_cookie'] = TRUE;
+$config['ci_cookie_name'] = 'ci_i18n_language';
+$config['ci_cookie_expiration'] = 604800; //7 Day
 
 /*
 |--------------------------------------------------------------------------

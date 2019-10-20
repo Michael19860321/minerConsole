@@ -5,12 +5,45 @@ class App extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		self::__initLanguage();
 
 		// Set the general timezone
 		$timezone = ($this->redis->get("minera_timezone")) ? $this->redis->get("minera_timezone") : 'Europe/Rome';
 		date_default_timezone_set($timezone);
-
 	}
+
+
+	private function __initLanguage(){
+		$lang_support = config_item('support_language');
+		$lang_url    = $this->uri->segment(1);
+		$lang_default = config_item('language');
+		//$lang_current = ( FALSE !== in_array($lang_url, $lang_support) ) ? $lang_url : $lang_default;
+		$lang_current = empty($this->session->userdata("language")) ?  $lang_default : $this->session->userdata("language");
+
+		$this->config->set_item('language', $lang_current);
+		$this->lang->load('app', $lang_current);
+		$this->load->helper('language');
+		
+		return;
+	}
+
+	/*
+	 * switch lanuage
+	 */
+    public function switchLanguage()
+    {
+		$lang_default = config_item('language');
+
+        $lang_switch  = empty($this->input->get('lang')) ? $lang_default : $this->input->get('lang');
+		$lang_current = empty($this->session->userdata("language")) ?  $lang_default : $this->session->userdata("language");
+		
+		
+			$this->session->set_userdata("language", $lang_switch);
+			$this->lang->load('app', $lang_switch);
+			//$this->load->helper('language');
+        
+        redirect('app/index'); // redirect to index
+    }
 	
 	/*
 	// Index/lock screen controller
@@ -21,6 +54,9 @@ class App extends CI_Controller {
 		// Always try to assign the mineraId if not present
 		$mineraSystemId = $this->util_model->generateMineraId();
 		$this->redis->del("minera_update");
+
+		//var_dump($this->lang->line('app.hello'));
+		
 		//$this->util_model->checkUpdate();
 		
 		// Remove old Minera pool
@@ -77,6 +113,15 @@ class App extends CI_Controller {
 		}
 		else
 			redirect('app/index');
+	}
+
+	/*
+	// Logout controller
+	*/
+	public function logout()
+	{	
+		$this->session->set_userdata("loggedin", null);
+		redirect('app/index'); // redirect to index
 	}
 	
 	/*

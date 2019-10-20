@@ -3,19 +3,19 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Mining
-                <small>Settings</small>
+                <?php echo lang('app.mining') ?>
+                <small><?php echo lang('app.settings') ?></small>
             </h1>
             <ul class="mini-save-toolbox">
 				<li>
-					<button type="submit" class="btn btn-sm btn-primary save-minera-settings" name="save" value="1"><i class="fa fa-floppy-o"></i> Save</button>
+					<button type="submit" class="btn btn-sm btn-primary save-minera-settings" name="save" value="1"><i class="fa fa-floppy-o"></i> <?php echo lang('app.save') ?></button>
 				</li>
 				<li>
-					<button type="submit" class="btn btn-sm btn-danger save-minera-settings-restart" name="save_restart" value="1"><i class="fa fa-repeat"></i> Save & Restart Miner</button>
+					<button type="submit" class="btn btn-sm btn-danger save-minera-settings-restart" name="save_restart" value="1"><i class="fa fa-repeat"></i> <?php echo lang('app.save_and_restart') ?></button>
 				</li>
 	    	</ul>
             <ol class="breadcrumb">
-                <li><a href="<?php echo site_url("app/dashboard") ?>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li><a href="<?php echo site_url("app/dashboard") ?>"><i class="fa fa-dashboard"></i> <?php echo lang('app.dashboard') ?></a></li>
             </ol>
         </section>
 
@@ -24,10 +24,10 @@
 	    	<ul>
 		    	<li><a href="#" class="toggle-save-toolbox"><i class="fa fa-close"></i></a></li>
 				<li>
-					<button type="submit" class="btn btn-lg btn-primary save-minera-settings" name="save" value="1"><i class="fa fa-floppy-o"></i> Save</button>
+					<button type="submit" class="btn btn-lg btn-primary save-minera-settings" name="save" value="1"><i class="fa fa-floppy-o"></i> <?php echo lang('app.save') ?></button>
 				</li>
 				<li>
-					<button type="submit" class="btn btn-lg btn-danger save-minera-settings-restart" name="save_restart" value="1"><i class="fa fa-repeat"></i> Save & Restart Miner</button>
+					<button type="submit" class="btn btn-lg btn-danger save-minera-settings-restart" name="save_restart" value="1"><i class="fa fa-repeat"></i> <?php echo lang('app.save_and_restart') ?></button>
 				</li>
 	    	</ul>
 		</div>
@@ -72,7 +72,7 @@
                                 </div><!-- /. tools -->
                                 <i class="fa fa-cloud"></i>
                                 
-                                <h3 class="box-title">Pools Settings</h3>
+                                <h3 class="box-title"><?php echo lang('app.pools_settings') ?></h3>
                             </div>
 
 							<div class="box-body">
@@ -81,13 +81,13 @@
 								<div class="form-group">
                                     <div class="row">
 										<div class="col-xs-4">
-											<strong>Pool URL</strong>
+											<strong><?php echo lang('app.pool_url') ?></strong>
 										</div>
 										<div class="col-xs-2">
-											<strong>Pool Username</strong>
+											<strong><?php echo lang('app.pool_username') ?></strong>
 										</div>
 										<div class="col-xs-2">
-											<strong>Pool Password</strong>
+											<strong><?php echo lang('app.pool_password') ?></strong>
 										</div>
                                     </div>
 								</div>
@@ -257,25 +257,25 @@
                             </div><!-- /. tools -->
                             <i class="fa fa-user"></i>
                             
-                            <h3 class="box-title">User</h3>
+                            <h3 class="box-title"><?php echo lang('app.user') ?></h3>
                         </div>
 						
 						<form action="<?php echo site_url("app/settings") ?>" method="post" role="form" id="minerapassword">
 							<input type="hidden" name="save_password" value="1" />
                             <div class="box-body">
 								<p>Change the Minera lock screen password</p>
-                               	<label for="password1">Password</label>
+                               	<label for="password1"><?php echo lang('app.password') ?></label>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input type="password" class="form-control" name="password" placeholder="Lock screen password">
+									<input type="password" class="form-control" name="password" placeholder="<?php echo lang('app.lock_screen_password') ?>">
 								</div>
 								<div class="input-group mt10">
 									<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-									<input type="password" class="form-control" name="password2" placeholder="Repeat the lock screen password">
+									<input type="password" class="form-control" name="password2" placeholder="<?php echo lang('app.repeat_lock_screen_password') ?>Repeat the lock screen password">
 								</div>
                             </div>
 							<div class="box-footer">
-								<button type="submit" class="btn btn-primary save-minera-password">Save password</button>
+								<button type="submit" class="btn btn-primary save-minera-password"><?php echo lang('app.save_password') ?></button>
 							</div>
 						
 						</form>
@@ -290,7 +290,7 @@
                             </div><!-- /. tools -->
                             <i class="fa fa-warning"></i>
                             
-                            <h3 class="box-title">Resets</h3>
+                            <h3 class="box-title"><?php echo lang('app.resets') ?></h3>
                         </div>
 						
                         <div class="box-body">
