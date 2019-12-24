@@ -298,7 +298,7 @@ class App extends CI_Controller {
 			{
 				sleep(5);
 				exec("sudo chmod 755 /tmp/".$fileInfoName);
-				exec("nohup sudo system_update online /tmp/".$fileInfoName." >/tmp/upgrade.log &");
+				exec("sudo system_update online /tmp/".$fileInfoName." >/tmp/upgrade.log &");
 				$data['message'] = '<b>Success!</b> The upgrade will take couple of minutes, please wait!';
 				$data['message_type'] = "success";
 			}
@@ -1014,9 +1014,10 @@ class App extends CI_Controller {
 				$this->session->set_flashdata('message_type', 'success');
 			break;
 			case "upgrade_exec":
+				$file_name = $this->input->post('file_name');
 				// execute the upgrade command
-				exec("sudo nohup system_update online /tmp/".$fileInfoName." >/var/log/upgrade.log");
-				$o = json_encode(array("message" => true));
+				exec("sudo system_update online ".$fileInfoName." >/tmp/upgrade.log &");
+				$o = json_encode(array("message" => 'success','code' => '200'));
 			break;
 			case "import_file":
 				$o = json_encode($this->util_model->importFile($this->input->post()));
